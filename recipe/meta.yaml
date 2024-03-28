@@ -1,5 +1,5 @@
 {% set name = "lucky-commit" %}
-{% set version = "2.2.2" %}
+{% set version = "2.2.3" %}
 
 package:
   name: {{ name | lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/not-an-aardvark/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 80d056c55cda794ce20b4f257bc77bd82aacf15962b7855d187098068a5be02c
+  sha256: 1631a48a535517c603850ba8cc8f44bf8b11cde2c269d6fb1ae72fb07bf37349
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
