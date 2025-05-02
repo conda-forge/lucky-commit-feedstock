@@ -1,5 +1,5 @@
 {% set name = "lucky-commit" %}
-{% set version = "2.2.3" %}
+{% set version = "2.2.5" %}
 
 package:
   name: {{ name | lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/not-an-aardvark/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 1631a48a535517c603850ba8cc8f44bf8b11cde2c269d6fb1ae72fb07bf37349
+  sha256: cab69b87afac8b2e8db3949397695809977199ccc4894b8af53e59da7f917126
 
 build:
   number: 0
@@ -15,6 +15,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
   host:
