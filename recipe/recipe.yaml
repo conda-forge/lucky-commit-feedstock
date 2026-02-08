@@ -1,0 +1,48 @@
+schema_version: 1
+
+context:
+  name: lucky-commit
+  version: 2.2.3
+
+package:
+  name: ${{ name | lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/not-an-aardvark/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: 1631a48a535517c603850ba8cc8f44bf8b11cde2c269d6fb1ae72fb07bf37349
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ compiler('rust') }}
+    - cargo-bundle-licenses
+  host:
+    - if: linux
+      then: ocl-icd
+    - if: win or osx
+      then: khronos-opencl-icd-loader
+  run:
+    - if: linux
+      then: ocl-icd
+    - if: win or osx
+      then: khronos-opencl-icd-loader
+
+tests:
+  - script:
+      - lucky_commit --benchmark
+
+about:
+  license: MIT
+  license_file:
+    - LICENSE.md
+    - THIRDPARTY_LICENSES.yaml
+  summary: Customize your git commit hashes!
+  homepage: https://github.com/not-an-aardvark/lucky-commit
+
+extra:
+  recipe-maintainers:
+    - pavelzw
