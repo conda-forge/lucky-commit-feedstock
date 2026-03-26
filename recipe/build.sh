@@ -6,6 +6,7 @@ cargo-bundle-licenses \
     --format yaml \
     --output THIRDPARTY_LICENSES.yaml
 
+cargo auditable build --release --locked
 cargo install --locked --root "$PREFIX" --path .
 
 "$STRIP" "$PREFIX/bin/lucky_commit"

@@ -2,6 +2,7 @@ cargo-bundle-licenses ^
     --format yaml ^
     --output THIRDPARTY_LICENSES.yaml || goto :error
 
+cargo auditable build --release --locked || goto :error
 cargo install --locked --root "%PREFIX%" --path . || goto :error
 
 goto :EOF
