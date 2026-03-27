@@ -13,12 +13,14 @@ source:
   sha256: 1631a48a535517c603850ba8cc8f44bf8b11cde2c269d6fb1ae72fb07bf37349
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
     - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
     - ${{ compiler('rust') }}
+    - cargo-auditable
     - cargo-bundle-licenses
   host:
     - if: linux
